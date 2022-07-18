@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,700;0,900;1,700&family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    $(document).ready(function(){
+        toggle = 0;
+
+        $('#menu>li:nth-child(4)').mouseenter(function(){
+            $('#menu>li:nth-child(4)>.sub').fadeIn()
+        })
+
+        $('#menu>li:nth-child(4)').mouseleave(function(){
+            $('#menu>li:nth-child(4)>.sub').hide()
+        })
+
+        $('#menu>li:nth-child(6)').mouseenter(function(){
+            $('#menu>li:nth-child(6)>.sub').fadeIn()
+        })
+
+        $('#menu>li:nth-child(6)').mouseleave(function(){
+            $('#menu>li:nth-child(6)>.sub').hide()
+        })
+        $("#serch").click(function(){
+            
+
+            if(toggle==0){
+                toggle = 1;
+                $("#search_box").stop().animate({'height':'80px'})
+                $(this).attr({'src':'icons/close.png'})
+            }
+
+            else if(toggle==1){
+                toggle = 0;
+                $("#search_box").stop().animate({'height':'0px'})
+                $(this).attr({'src':'icons/ico_search.png'})
+            }
+        })
+        $("#search_box>input").click(function(){
+            $(this).attr({'placeholder':''})
+
+        })
+        open_toggle = 0;
+        $(" #header1_box>ul>li:last-child").click(function(){
+            
+            if(open_toggle==0){
+                open_toggle = 1
+                $("header").animate({'top':'0'})
+                $(this).css({'background': '#2f1c11 url(icons/btn_popup_close2.png) center no-repeat'})
+            }
+
+            else if(open_toggle==1){
+                open_toggle = 0;
+
+                $("header").css({'top':'-120px'})
+                $(this).css({'background': '#2f1c11 url(icons/ico_user_info_line.png) center no-repeat'})
+            }
+
+
+
+
+        })
+
+
+
+
+
+
+    })
+</script>
+    <style>
+        *{margin: 0;padding: 0;list-style: none;font-family: 'Merriweather', serif;
+font-family: 'Noto Sans KR', sans-serif;}
+        body{height: 100%;}
+        li{cursor: pointer;}
+        #head_open{width: 100%;height: 120px;z-index: 90;background-color: #2f1c11;}
+        #open_box{width: 1130px;height: 120px;margin: auto;overflow: hidden;position: relative;}
+        #open_box>h2{color: #fff;font-weight: 380;font-size: 20px;text-align-last: left;margin-top: 40px;}
+        #open_box>h2>span{color: #ffa218;}
+        #bt{width: 356px;height: 33px;position: absolute;top: 0;bottom: 0;right: 0;margin: auto;}
+        #bt>button{width: 170px;height: 35px;text-align: center;}
+        #bt1{background-color: #fff;line-height: 35px;margin-right: 10px;color: #2f1c11;border: none;}
+        #bt2{background-color: #2f1c11;border: 1px solid #fff;box-sizing: border-box;color: #fff;}
+        header{background-color: #fff;width: 100%;margin: auto;text-align: center;position: fixed;z-index: 90;border-bottom: 1px solid #ccc;height: 260px;top: -120px;left: 0;}
+        #mdpick>h3{color: #d4641a;}
+        #header1{width: 100%;height: 40px;background-color: #eee;}
+        #header2{width: 100%;height: 100px;}
+        #header1_box{width: 1210px;height: 40px;margin: auto;}
+        #header1_box>ul{float: right;}
+        #header1_box>ul>li{display: inline-block;padding: 0 10px;line-height: 40px;float: left;font-size: 13px;}
+        #header1_box>ul>li:hover{cursor: pointer;}
+        #header1_box>ul>li:last-child{width: 60px;height: 40px;background: #2f1c11 url(icons/ico_user_info_line.png) center no-repeat;}
+        #header1_box>ul>li:first-child{border-right: 1px solid #ccc;padding-right: 15px;}        
+        #header2_box{width: 1210px;height: 100px;margin: auto;line-height: 100px;background-color: #fff;}
+        #header2_box>ul{float: left; width: 950px;height: 100px;margin-left: 30px;position: relative;}
+        #header2_box>ul>li{display: inline-block;padding: 0 30px;font-size: 14px;position: relative;}
+        #header2_box>ul>li:hover{color: rgb(215, 143, 55); cursor: pointer;}
+
+        #logo{float: left;width: 90px;height: 80px;cursor: pointer; }
+        #logo>img{vertical-align: middle;}
+        #serch{float: right; width: 20px;height: 20px;padding-right: 40px; padding-top: 40px;cursor: pointer;}
+        #serch>img{width: 100%;}
+        #search_box{width: 1260px;height: 0px;background-color: #ddd;margin: auto;position: absolute;right: 0;left: 0;top: 260px;z-index: 80;overflow: hidden;}
+        #search_box>input{width: 1130px;height: 30px;margin: auto;margin-top: 25px;text-align: center;border: none;background-color: #ddd;}
+        #search_box>img{width: 20px;height: 20px;position: absolute;top: 30px;right: 25px;}
+
+        #main_img{clear: both;}
+        #banner{margin: auto;text-align: center;margin-top: 140px;}
+        #banner>img{display: block;margin: auto;text-align: center;z-index: 99;}
+
+        #mdpick{margin: auto;width: 1800px; height: 600px;text-align: center;}
+        #mdpick>ul{text-align: center;margin: auto; width: 1250px; height: 360px;}        
+        #mdpick>ul>li{width: 300px;height: 460px;float: left;margin: 0 5px;}
+        #mdpick>ul>li>img{width: 300px;}
+        #mdpick>ul>li>p{color: #d4641a;}
+        #mdpick>ul>li>h4{font-size: 10px;}
+        #mdpick>h3{height: 100px;line-height: 100px;}
+
+        #btn1{width: 160px;height: 40px;margin: 20px auto;}
+        #btn1>li:nth-child(1){width: 60px;height: 40px;box-sizing: border-box;float: left;text-align: center;line-height: 40px;border-right: 1px solid rgb(209, 209, 209);}
+        #btn1>li:nth-child(2){width: 100px;height: 40px;float: right;text-align: center;line-height: 40px;}
+
+
+        #wn{width: 1240px;height: 600px;margin: auto;}
+        #wn>h2{height: 100px;color: #d4641a;line-height: 100px;text-align: center;}
+        #wn>ul>li{width: 380h 580px;margin: 16px;float: left;text-align: center;}
+        #wn>ul>li>h4{color: #d4641a;}
+
+        #btn2{width: 160px;height: 160px;margin: 20px auto;}
+        #btn2>li:nth-child(1){width: 60px;height: 40px;box-sizing: border-box;float: left;text-align: center;line-height: 40px;border-right: 1px solid rgb(209, 209, 209);}
+        #btn2>li:nth-child(2){width: 100px;height: 40px;float: right;text-align: center;line-height: 40px;}
+        #btn2>li:nth-child(2)>img{margin: 0 5px;}
+
+        #vs{width: 100%;height: 620px;background-color: rgb(158, 97, 172);color: white;text-align: center;font-size: 20px;margin: auto;}
+        #vs>ul{width: 1200px;margin: auto;}
+        #vs>ul>li{width: 200px;height: 200px;float: left; background-color: blue;}
+        #vs>ul>li>img{width: 100%}
+        #vs>h3{height: 100px;line-height: 100px; padding-top: 20px;}
+        #vs>ul>li:hover{overflow: hidden;background-color: rgb(172, 172, 172);margin: auto;text-align: center;}
+        #vs>ul>li>img:hover{ margin: auto;transition: 0.6s;opacity: 60%;transform: scale(1.13);cursor: pointer;}
+        #vs>button{background-color: rgb(216, 110, 11);width: 450px;height: 50px;display: inline-block; margin: 30px;text-align: center;line-height: 50px;cursor: pointer;border: none;color: rgb(255, 255, 255);}
+        #um{margin: auto;width: 1300px;height: 300px;padding-top: 50px;}
+        #um>ul{float: left;margin: 0 50px;}
+        #um>ul>li{margin-bottom: 10px;}
+        #um>ul>h5{font-size: 18px;color: rgb(235, 87, 28);margin-bottom: 20px;}
+        footer{margin: auto;text-align: center;}
+        footer>h2{background-color: rgb(59, 30, 7);width: 1300px;height: 1px;margin: auto;}
+        #um2{width: 1300px;height: 400px; margin: auto;margin-top: 30px;text-align-last: left;}
+        #um2>ul>li{float: left;}
+        #um2>p{float: left;margin-top: 15px;font-size: 15px;}
+
+        #top{position: fixed;right: 50px;bottom: 100px;}
+        #top:hover{cursor: pointer;}
+        #menu>li:nth-child(6){width: 100px;height: 100px;}
+        #menu>li:nth-child(6)>.sub{width: 200px;height: 236px;background-color: rgb(209, 209, 209);z-index: 9999;position: absolute;color: #000;display: none;}
+        #menu>li:nth-child(6)>.sub>li{width: 100px;height: 36px;line-height: 36px;font-weight: 380;text-align: left;margin-left: 10px;margin-top: 2px;}
+        #menu>li:nth-child(4){height: 100px;}
+        #menu>li:nth-child(4)>.sub{width: 200px;height: 150px;background-color: rgb(209, 209, 209);position: absolute;left: -30px;display: none;}
+        #menu>li:nth-child(4)>.sub>li{width: 100px;height: 20px;color: #000;text-align: left;margin-left: 30px;font-weight: 380;padding-bottom: 10px;line-height: 20px;}
+        #menu>li:nth-child(4)>.sub>li:nth-child(1){margin-top: 36px;}
+        #menu>li:nth-child(5)>div{width: 1060px;height: 200px;background-color: red;position: absolute;left: -550px;display: none;}
+        #menu>li:nth-child(5)>div>ul>li{width: 150px;height: 20px;line-height: 20px;font-size: 14px;color: rgb(101, 101, 101);}
+
+    </style>
+</head>
+<body>
+        
+        <header>
+            <div id="head_open">
+                <div id="open_box">
+                    <h2><span>로그인</span>을 하시면 커피빈 멤버스 클럽의 <span>다양한혜택</span>을 받으실 수 있습니다.</h2>
+
+                    <div id="bt">
+                        <button id="bt1">로그인</button>
+                        <button id="bt2">회원가입</button>
+                    </div>
+
+                </div>
+
+            </div>
+        <div id="header1">
+
+            
+            <div id="header1_box">
+            <ul>
+                <li>로그인</li>
+                <li>매장찾기</li>
+                <li>채용정보</li>
+                <li>단체 및 기업구매</li>
+                <li>고객서비스</li>
+                <li></li>
+            </ul>
+
+            </div>
+
+        </div>
+        <div id="header2">
+            <div id="header2_box">
+            <h1 id="logo"><img src="logo_new.jpg" alt=""></h1>
+            <ul id="menu">
+                <li><b>BUY ONLINE</b></li>
+                <li><b>MEMBER'S CLUB</b></li>
+                <li><b>MENU</b></li>
+                <li><b>STORE & 서비스</b><ul class="sub">
+                    <li>케이터링 서비스</li>
+                    <li>매장 찾기</li>
+                    <li> 신규 매장</li>
+                </ul></li>
+                <li><b>THE COFFEE BEAN</b>
+                <div>
+                    <ul>
+                        
+                        <li id="title">커피빈 코리아</li>
+                        <li>Simply the Best</li>
+                        <li>커피빈 커피와 티</li>
+                    </ul>
+                    <ul>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                    <ul>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                    <ul>
+                        <li></li>
+                        <li></li>
+                    </ul>
+
+
+
+
+
+
+                </div></li>
+                <li><b>CBTL</b><ul class="sub">
+                    <li>CBTL 가이드</li>
+                    <li>CBTL 서비스</li>
+                    <li>AS 안내</li>
+                    <li>AS 신청</li>
+                    <li>CBTL FAQ</li>
+                    <li>제품설명서</li>
+                </ul></li>
+            </ul>
+            <img src="icons/ico_search.png" alt="" id="serch">
+
+            </div>
+
+        </div>
+
+        <div id="search_box">
+            <input type="text" placeholder="검색어를 입력하세요" >
+            <img src="icons/ico_search.png" alt="">
+        </div>
+     </header>
+
+     <div id="banner">
+            <img src="mainslide_pc.jpg" alt="" id="main_img">
+            <img src="images/banner2.jpg" alt="" >
+
+
+     </div>
+
+     <div id="mdpick">
+            <h3>MD'S PICK</h3>
+        <ul>
+            <li><img src="11110043.jpg" alt="">
+                <h3>커피빈 바닐라 라떼 2T</h3>
+                <h4>커피빈 바닐라 라떼 (21.6g*2T)</h4>
+                <p>5000원</p> </li></li>
+            <li><img src="12200016.jpg" alt="">
+                <h3>피크닉 스푼캐니스터(핑크)</h3>
+                <h4>♥봄이 왔 어흥!♥</h4>
+                <p>5000원</p> </li>
+            <li><img src="12600031.jpg" alt="">
+                <h3>아이스박스(소프트퍼플) 5.5L</h3>
+                <h4></h4>
+                <p>5000원</p> </li> </li>
+            <li><img src="12600032.jpg" alt=""> 
+                <h3>아이스박스(크림옐로우) 5.5L</h3>
+                <h4></h4>
+                <p>5000원</p> </li></li>
+        </ul>
+     </div>
+
+        <ul id="btn1">
+            <li><img src="icons/btn_pause.png" alt=""></li>
+            <li><img src="icons/paging_on.png" alt=""><img src="icons/paging.png" alt=""></li>
+        </ul>
+
+        <div id="wn">
+             <h2>What's new</h2>
+            <ul>
+                <li>
+                    <img src="PC_B_327.jpg" alt="">
+                    <h4>2022 05 Coffeebean Whole Cake</h4>
+
+                </li>
+                <li>
+                    <img src="PC_B_329.jpg" alt="">
+                    <h4>2022 05 My Marvelous Dimon</h4>
+
+                </li>
+                <li>
+                    <img src="PC_B_331.jpg" alt="">
+                    <h4>2022 05 Fresh Milk Honey Cake & <br> White Cheese Mousse Cake
+
+                    </h4>
+
+                </li>
+            </ul>
+
+        </div>
+
+        <ul id="btn2">
+            <li><img src="icons/btn_pause.png" alt=""></li>
+            <li><img src="icons/paging_on.png" alt=""><img src="icons/paging.png" alt=""><img src="icons/paging.png" alt=""><img src="icons/paging.png" alt=""></li>
+        </ul>
+
+
+
+     
+        <section id="vs">
+            <h3>#커피빈코리아#커피빈맛있다#커피빈사랑해</h3>
+            <ul>
+                <li><img src="ddd/283966329_387615509962563_7692700140429120786_n.jpg" alt=""></li>
+                <li><img src="ddd/283752057_582630459724358_4312059641155942658_n.jpg" alt=""></li>
+                <li><img src="ddd/283561880_170947705387047_2120775071085621613_n.jpg" alt=""></li>
+                <li><img src="ddd/283339436_1042508103055081_6793947673784210074_n.jpg" alt=""></li>
+                <li><img src="ddd/283221127_1318835175293753_8018835075016122412_n.jpg" alt=""></li>
+                <li><img src="ddd/283126672_748604046155652_2640604889730497187_n.jpg" alt=""></li>
+                <li><img src="ddd/283088151_2282691121873517_1664101967080824530_n.jpg" alt=""></li>
+                <li><img src="ddd/282562280_344336334458606_3758809074432806601_n.jpg" alt=""></li>
+                <li><img src="ddd/282357511_738398404004967_6762514912994099450_n.jpg" alt=""></li>
+                <li><img src="ddd/281637070_1350582952131906_6203516431450384985_n.jpg" alt=""></li>
+                <li><img src="ddd/281613025_4650620795038237_5644265217995148041_n.jpg" alt=""></li>
+                <li><img src="ddd/281585290_346181230946742_8347622403146270339_n.jpg" alt=""></li>
+            </ul>
+
+            <button>OUR INSTAGRAM - @COFFEEBEAN_KR</button>
+
+        </section>
+
+
+     <footer>
+        <div id="um">
+
+            <ul>
+                <h5>Buy Online</h5>
+                <li>VIEW ALL</li>
+                <li>커피</li>
+                <li>티</li>
+                <li>CBTL시스템</li>
+                <li>상품</li>
+
+            </ul>
+
+
+            <ul>
+                <h5>Member's Club</h5>
+                <li>커피빈 멤버스 클럽</li>
+                <li>나의 커피빈</li>
+
+            </ul>
+
+
+            <ul>
+                <h5>Menu</h5>
+                <li>음료</li>
+                <li>푸드</li>
+                <li>상품</li>
+                <li>카드</li>
+
+            </ul>
+
+
+            <ul>
+                <h5>Store & 서비스</h5>
+                <li>케이터링 서비스</li>
+                <li>매장 찾기</li>
+                <li>신규매장</li>
+
+            </ul>
+
+
+            <ul>
+
+                    <h5>The Coffee Bean</h5>
+                    <li>커피빈 코리아</li>
+                    <li>커피빈 소식</li>
+                    <li>사회공헌</li>
+                    <li>제휴 마케팅 제한</li>
+                    <li>채용안내</li>
+                    <li>신규 입점 제의</li>
+                    <li>결산공고</li>
+
+            </ul>
+
+
+            <ul>
+
+                        <h5>CBTL</h5>
+                        <li>CBTL 가이드</li>
+                        <li>CBTL 서비스</li>
+                        <li>AS 안내</li>
+                        <li>AS 신청</li>
+                        <li>CBTL FAQ</li>
+                        <li>제품설명서</li>
+
+            </ul>
+
+
+           
+
+
+
+
+        </div>
+
+     <h2></h2>
+
+        <div id="um2">
+            <ul>
+                <li>홈페이지 이용약관</li>
+                <li>개인정보처리방침</li>
+                <li>영상정보기기운영방침</li>
+                <li>멤버스카드이용약관</li>
+                <li>위치기바너비스 이용약관</li>
+            </ul>
+    
+            <p>
+                (주)커피빈코리아 대표이사 감종철 ㅣ 사업자등록번호 120-86-07029 ㅣ 통신판매업신고 제 2010-서울강남-00560 <br>
+서울시 강남구 봉은사로 99길 7 ㅣ 고객센터 02-1577-4708 (09:00 - 18:00) ㅣE-mail : cbk@coffeebeankorea.com <br>
+ⓒ 2021. The Coffee Bean. All rights reserved.
+            </p>
+
+
+
+
+
+
+
+        </div>
+
+
+     </footer>
+
+<img src="icons/btn_top.png" alt="" id="top">
+
+</body>
+</html>
